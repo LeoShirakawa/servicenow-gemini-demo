@@ -37,11 +37,9 @@ Step 1  サンプルデータ投入（IT運用 + ヘルプデスク）
   ↓
 Step 2  Federation Connector 接続前準備（GCP SA + OAuth + REST Message）
   ↓
-Step 3  ServiceNow プラグイン有効化（GUI）
+Step 3  Google Cloud Agentspace コネクタ設定
   ↓
-Step 4  Google Cloud Agentspace コネクタ設定
-  ↓
-Step 5  デモリハーサル
+Step 4  デモリハーサル
 ```
 
 ---
@@ -210,28 +208,9 @@ https://vertexaisearch.cloud.google.com/console/oauth/default_oauth.html
 
 ---
 
-## Step 3: ServiceNow プラグイン有効化（GUI操作）
+## Step 3: Google Cloud Agentspace コネクタ設定
 
-以下のプラグインは API では有効化できないため、GUI から操作する。
-
-### 有効化手順
-
-1. ServiceNow にログイン
-2. ナビゲーター検索バーに `v_plugin` と入力 → **System Plugins** を開く
-   - URL直接: `https://<YOUR_INSTANCE>.service-now.com/nav_to.do?uri=v_plugin_list.do`
-3. 以下を検索して **Install** または **Activate** をクリック
-
-| プラグイン ID | 名前 |
-|--------------|------|
-| `com.glide.cs.genai` | Glide Conversation Generative AI |
-| `com.now_assist_self_service` | Now Assist Self-Service |
-| `com.glide.utilities.flow_designer_genai_extensions` | Flow Designer - Generative AI Extensions |
-
----
-
-## Step 4: Google Cloud Agentspace コネクタ設定
-
-### 4-1. コネクタ作成
+### 3-1. コネクタ作成
 
 1. Google Cloud Console → Agent Builder → Data Stores
 2. **Create Data Store** → **ServiceNow** を選択
@@ -241,7 +220,7 @@ https://vertexaisearch.cloud.google.com/console/oauth/default_oauth.html
    - `kb_knowledge` — ナレッジ記事
    - `change_request` — 変更リクエスト
 
-### 4-2. ユーザー認証
+### 3-2. ユーザー認証
 
 エンドユーザーが Agentspace から ServiceNow データを検索する際、
 OAuth 認証画面が表示される。`Invalid redirect_uri` エラーが出た場合:
