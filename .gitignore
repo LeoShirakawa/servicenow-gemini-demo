@@ -1,0 +1,14 @@
+# Credentials
+*.json
+!package.json
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
